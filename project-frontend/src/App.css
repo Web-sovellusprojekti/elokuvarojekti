@@ -1,0 +1,110 @@
+/* Perusasetukset */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f9f9f9;
+  color: #333;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: #222;
+  color: #fff;
+}
+
+header .theater-selection {
+  display: flex;
+  align-items: center;
+}
+
+header .theater-selection label {
+  margin-right: 10px;
+}
+
+header .user-actions button {
+  margin-left: 10px;
+  padding: 5px 10px;
+  background-color: #555;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+
+header .user-actions button:hover {
+  background-color: #777;
+}
+
+/* Päänäkymän rakenne */
+.container {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 20px;
+  padding: 20px;
+}
+
+.schedule {
+  border: 1px solid #ccc;
+  padding: 10px;
+  background-color: #fff;
+}
+
+.calendar {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.calendar button {
+  flex: 1;
+  margin: 0 2px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  background-color: #f0f0f0;
+  cursor: pointer;
+}
+
+.calendar button:hover {
+  background-color: #ddd;
+}
+
+.movie-list ul {
+  list-style: none;
+  padding: 0;
+}
+
+.movie-list li {
+  padding: 5px 0;
+  border-bottom: 1px solid #eee;
+}
+
+.movie-list li:last-child {
+  border-bottom: none;
+}
+
+/* Elokuvan tiedot */
+.movie-details {
+  border: 1px solid #ccc;
+  padding: 10px;
+  background-color: #fff;
+}
+
+.movie-details .movie-poster {
+  margin: 10px 0;
+}
+
+.movie-details .movie-poster img {
+  max-width: 100%;
+  height: auto;
+}
+
+.reviews {
+  margin-top: 20px;
+}
+
+.reviews h3 {
+  margin-bottom: 10px;
+}
