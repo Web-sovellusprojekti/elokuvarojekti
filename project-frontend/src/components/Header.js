@@ -1,6 +1,7 @@
 import React from "react";
+import "../css/App.css";
 
-function Header() {
+function Header({ handleLogin, handleRegister }) {
   return (
     <header className="header">
       <div className="theater-selection">
@@ -12,8 +13,8 @@ function Header() {
         </select>
       </div>
       <div className="user-actions">
-        <button>Rekisteröidy</button>
-        <button>Kirjaudu</button>
+        <button onClick={() => handleRegister(true) } >Rekisteröidy</button>
+        <button onClick={() => handleLogin(true) } >Kirjaudu</button>
       </div>
     </header>
   );
