@@ -1,9 +1,12 @@
-const pool = require('../config/db');
+// src/controllers/reviewController.js
+import pool from '../config/db.js'; // Use ES module import
 
 // Get all reviews
-async function getReviews(req, res) {
+export async function getReviews(req, res) {
     try {
+        console.log('Fetching reviews...');
         const result = await pool.query('SELECT * FROM Review');
+        console.log('Reviews fetched:', result.rows);
         res.json(result.rows); // Return list of reviews
     } catch (error) {
         console.error('Error fetching reviews:', error);
@@ -12,7 +15,7 @@ async function getReviews(req, res) {
 }
 
 // Add a new review
-async function addReview(req, res) {
+export async function addReview(req, res) {
     const { user_id, tmdb_id, review_text, rating } = req.body;
 
     // Validate the rating to be between 1 and 10
@@ -39,5 +42,3 @@ async function addReview(req, res) {
         res.status(500).send('Server error');
     }
 }
-
-module.exports = { getReviews, addReview };

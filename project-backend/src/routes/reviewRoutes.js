@@ -1,11 +1,18 @@
-const express = require('express');
-const { getReviews, addReview } = require('../controllers/reviewController');
+// src/routes/userRoutes.js
+import express from 'express';
+import { registerUser, loginUser, logoutUser, deleteUser } from '../controllers/userController.js';  // Importing controller functions
 const router = express.Router();
 
-// Get all reviews
-router.get('/reviews', getReviews);
+// Route for user registration
+router.post('/register', registerUser);
 
-// Add a new review
-router.post('/reviews', addReview);
+// Route for user login
+router.post('/login', loginUser);
 
-module.exports = router;
+// Route for user logout
+router.post('/logout', logoutUser);
+
+// Route for user deletion
+router.delete('/:id', deleteUser);
+
+export default router;  // Default export to be imported in the server.js

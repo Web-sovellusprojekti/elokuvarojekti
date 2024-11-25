@@ -1,7 +1,8 @@
-const pool = require('../config/db');
+import pool from '../config/db.js';  // Use ES module import syntax
+
 
 // Registration route
-async function registerUser(req, res) {
+export async function registerUser(req, res) {
   const { email, password } = req.body;
 
   try {
@@ -21,7 +22,7 @@ async function registerUser(req, res) {
 }
 
 // Login route
-async function loginUser(req, res) {
+export async function loginUser(req, res) {
   const { email, password } = req.body;
 
   try {
@@ -45,8 +46,26 @@ async function loginUser(req, res) {
 }
 
 // Logout route
-function logoutUser(req, res) {
+export function logoutUser(req, res) {
   res.status(200).send('You have logged out');
 }
 
-module.exports = { registerUser, loginUser, logoutUser };
+// User deletion
+export async function deleteUser(req, res) {
+    const userId = req.params.id;
+
+    try {
+        // Check if user exists
+        const userResult = await pool.query('SELECT * FROM Users WHERE id = $1', [userId]);
+        if (userResult.rows.length === 0) {
+            return res.status(404).send('User not found');
+        }
+
+        // Delete user from the database
+        await pool.query('DELETE FROM Users WHERE id = $1', [userId]);
+        res.status(200).send('User deleted successfully');
+    } catch (error) {
+        console.error('Error deleting user:', error);
+        res.status(500).send('Server error');
+    }
+}

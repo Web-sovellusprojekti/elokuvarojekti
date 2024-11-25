@@ -1,14 +1,18 @@
-const express = require('express');
-const { registerUser, loginUser, logoutUser } = require('../controllers/userController');
+// src/routes/userRoutes.js
+import express from 'express';
+import { registerUser, loginUser, logoutUser, deleteUser } from '../controllers/userController.js';  // Importing controller functions
 const router = express.Router();
 
-// Registration route
+// Route for user registration
 router.post('/register', registerUser);
 
-// Login route
+// Route for user login
 router.post('/login', loginUser);
 
-// Logout route
+// Route for user logout
 router.post('/logout', logoutUser);
 
-module.exports = router;
+// Route for user deletion
+router.delete('/:id', deleteUser);
+
+export default router;  // Default export to be imported in the server.js
