@@ -1,4 +1,4 @@
-import pool from '../config/db.js';  // Use ES module import syntax
+import pool from '../config/db.js';  
 
 
 // Registration route
