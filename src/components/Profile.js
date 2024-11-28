@@ -148,6 +148,11 @@ const Profile = () => {
             </div>
           )}
         </div>
+        <div style={{ textAlign: 'center', marginTop: '20px' }}>
+          <a href={`/public-favourites/${user.id}`} target="_blank" rel="noopener noreferrer">
+            Share your favourites
+          </a>
+        </div>
       </div>
     </div>
   );

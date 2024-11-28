@@ -2,6 +2,7 @@
 import express from 'express';
 const router = express.Router();
 import { authenticateToken } from '../middleware/authMiddleware.js';
+import { getFavouritesForUser } from '../models/favouriteModel.js';
 import pool from '../db.js';
 
 // Endpoint to add a favourite movie
@@ -30,7 +31,7 @@ router.post('/api/favourites', authenticateToken, async (req, res) => {
   
   // Endpoint to get favourite movies
 router.get('/api/favourites', authenticateToken, async (req, res) => {
-    const userId = req.user.id; // extracted from the token
+    const userId = req.user.id;
   
   console.log('User ID:', userId);
     try {
@@ -45,10 +46,10 @@ router.get('/api/favourites', authenticateToken, async (req, res) => {
     }
   });
   
-// DELETE endpoint to remove a favourite movie
+// Endpoint to remove a favourite movie
 router.delete('/api/favourites/:id', authenticateToken, async (req, res) => {
     const { id } = req.params;
-    const userId = req.user.id; // Assuming you have user authentication and can get the user ID from the request
+    const userId = req.user.id;
   
     try {
       const result = await pool.query(
@@ -67,5 +68,11 @@ router.delete('/api/favourites/:id', authenticateToken, async (req, res) => {
     }
   });
 
+  // Endpoint to get favourites by user id
+  router.get('/api/favourites/:userId', async (req, res) => {
+    const userId = req.params.userId;
+    const favourites = await getFavouritesForUser(userId);
+    res.json(favourites);
+  });
 
   export default router;

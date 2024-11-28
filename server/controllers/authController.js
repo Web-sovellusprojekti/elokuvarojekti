@@ -25,7 +25,7 @@ export const login = async (req, res) => {
 };
 
 export const deleteUser = async (req, res) => {
-  const userId = req.user.id; // Extract user ID from the token
+  const userId = req.user.id;
 
   try {
     const user = await deleteUserById(userId);

@@ -12,7 +12,7 @@ export const authenticateToken = (req, res, next) => {
       console.log('Token verification failed:', err);
       return res.sendStatus(403);
     } 
-    console.log('Decoded User:', user); // Log the decoded user
+    console.log('Decoded User:', user);
     req.user = user;
     next();
   });

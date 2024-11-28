@@ -7,6 +7,7 @@ import ProtectedRoute from './components/ProtectedRoute';
 import Home from './components/Home';
 import Header from './components/Header';
 import MovieDetail from './components/MovieDetail';
+import PublicFavourites from './components/PublicFavourites';
 import './App.css';
 
 const App = () => {
@@ -18,6 +19,7 @@ const App = () => {
         <Route path="/register" element={<Register />} />
         <Route path="/" element={<Home />} />
         <Route path="/movie/:id" element={<MovieDetail />} />
+        <Route path="/public-favourites/:userId" element={<PublicFavourites />} />
         <Route element={<ProtectedRoute />}>
           <Route path="/profile" element={<Profile />} />
           </Route>
