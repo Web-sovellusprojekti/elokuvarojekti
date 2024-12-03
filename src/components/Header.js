@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { login } from '../api';
+import { LogoutButton } from './LogoutButton';
 import Modal from './Modal';
 import { Link } from 'react-router-dom';
 import './Header.css';
@@ -51,7 +52,7 @@ export default function Header() {
         <button className="nav-button" onClick={handleHomeClick}>Home</button>
         {!isLoggedIn && <button className="nav-button" onClick={handleRegisterClick}>Register</button>}
         {!isLoggedIn && <button className="nav-button" onClick={() => setShowModal(true)}>Login</button>}
-        {isLoggedIn && <button className="nav-button" onClick={handleLogout}>Logout</button>}
+        {isLoggedIn && <LogoutButton onLogout={handleLogout} />}
         <Modal show={showModal} handleClose={() => setShowModal(false)}>
           <form onSubmit={handleSubmit}>
             <input

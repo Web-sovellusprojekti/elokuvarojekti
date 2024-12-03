@@ -1,7 +1,7 @@
 # elokuvarojekti
 
 Luo .env tiedosto server kansioon, johon tulee JWT_SECRET
-Luo .env tiedosto pääkansioon, johon tulee REACT_APP_API_KEY
+Luo .env tiedosto pääkansioon, johon tulee REACT_APP_API_KEY eli tmdb api avain
 
 Serveri käynnistyy server kansiossa komennolla npm start
 Sovellus käynnistyy pääkansiossa komennolla npm start

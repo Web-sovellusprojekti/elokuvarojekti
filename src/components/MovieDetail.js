@@ -1,3 +1,4 @@
+// tmdb elokuvan tiedot
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 const apiKey = process.env.REACT_APP_API_KEY;

@@ -6,6 +6,7 @@ import SearchBox from './SearchBox';
 import AddFavourite from './AddFavourite';
 import ScheduleContainer from './ScheduleContainer';
 import './schedule.css'
+// tmdb api avain
 const apiKey = process.env.REACT_APP_API_KEY;
 
 const Home = () => {
