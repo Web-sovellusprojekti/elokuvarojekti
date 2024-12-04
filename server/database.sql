@@ -24,7 +24,8 @@ CREATE TABLE Groups_Users (
     id SERIAL PRIMARY KEY,
     group_id INT NOT NULL REFERENCES Groups(id) ON DELETE CASCADE,
     user_id INT NOT NULL REFERENCES Users(id) ON DELETE CASCADE,
-    is_owner BOOLEAN DEFAULT FALSE
+    is_owner BOOLEAN DEFAULT FALSE,
+    status VARCHAR(20) DEFAULT 'pending'
 );
 
 -- Review table

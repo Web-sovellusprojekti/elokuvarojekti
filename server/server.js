@@ -3,6 +3,7 @@ import cors from 'cors';
 import dotenv from 'dotenv';
 import authRoutes from './routes/authRoutes.js';
 import favouritesRoutes from './routes/favouriteRoutes.js';
+import groupRoutes from './routes/groupsRoutes.js'
 
 dotenv.config();
 
@@ -14,6 +15,8 @@ app.use('/auth', authRoutes);
 // favourites routes
 app.use(favouritesRoutes);
 
+// groups routes
+app.use('/api/groups', groupRoutes);
 
 // route for root path
 app.get('/', (req, res) => {

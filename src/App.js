@@ -8,6 +8,8 @@ import Home from './components/Home';
 import Header from './components/Header';
 import MovieDetail from './components/MovieDetail';
 import PublicFavourites from './components/PublicFavourites';
+import GroupPage from './components/GroupPage';
+import GroupDetails from './components/GroupDetails';
 import './App.css';
 
 const App = () => {
@@ -19,6 +21,8 @@ const App = () => {
         <Route path="/register" element={<Register />} />
         <Route path="/" element={<Home />} />
         <Route path="/movie/:id" element={<MovieDetail />} />
+        <Route path="/groups" element={<GroupPage />} />
+        <Route path="/groups/:groupId" element={<GroupDetails />} />
         <Route path="/public-favourites/:userId" element={<PublicFavourites />} />
         <Route element={<ProtectedRoute />}>
           <Route path="/profile" element={<Profile />} />
