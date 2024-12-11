@@ -29,20 +29,20 @@ const GroupDetails = () => {
     };
 
     const fetchGroupDetails = async () => {
-        try {
-          const { data } = await axios.get(`http://localhost:3001/api/groups/${groupId}`, {
-            headers: {
-              Authorization: `Bearer ${token}`,
-            },
-          });
-          setGroup(data.group);
-          setMembers(data.members);
-          setIsMember(data.isMember);
-        } catch (error) {
-          console.error('Error fetching group details:', error);
-          setError('Failed to fetch group details. Try again later.');
-        }
-      };
+      try {
+        const { data } = await axios.get(`http://localhost:3001/api/groups/${groupId}`, {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        });
+        setGroup(data.group);
+        setMembers(data.members);
+        setIsMember(data.isMember);
+      } catch (error) {
+        console.error('Error fetching group details:', error);
+        setError('Failed to fetch group details. Try again later.');
+      }
+    };
 
     const fetchJoinRequests = async () => {
       try {
@@ -120,6 +120,22 @@ const GroupDetails = () => {
     }
   };
 
+  const handleRemoveMember = async (userId) => {
+    try {
+      await axios.delete(`http://localhost:3001/api/groups/${groupId}/remove`, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+        data: { userId },
+      });
+      setMembers(members.filter(member => member.id !== userId));
+      alert('User removed from the group successfully!');
+    } catch (error) {
+      console.error('Error removing member:', error);
+      alert('Failed to remove member');
+    }
+  };
+
   if (error) return <div>{error}</div>;
   if (!group) return <div>Loading...</div>;
   if (!isMember) return <div>You do not have access to this group.</div>;
@@ -130,9 +146,13 @@ const GroupDetails = () => {
       <h2>Members</h2>
       <ul>
         {members.map(member => (
-          <li key={member.id}>{member.email}</li>
-        ))}
-      </ul>
+          <li key={member.id}>{member.email}
+        {isOwner && member.id !== group.owner_id && (
+        <button onClick={() => handleRemoveMember(member.id)}>Remove</button>
+        )}
+        </li>
+    ))}
+    </ul>
       {isOwner && (
         <>
           <h2>Join Requests</h2>
