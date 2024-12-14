@@ -210,7 +210,6 @@ const Home = () => {
 
   return (
     <div className='container-fluid movie-app'>
-      <ScheduleContainer />
 
       {/* TMDb Search Bar */}
       <div className='row d-flex align-items-center mt-4 mb-4'>
