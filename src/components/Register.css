@@ -1,0 +1,13 @@
+.register-button {
+    background-color: rgb(144, 201, 0);
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-left: 8px;
+  }
+  
+  .register-button:hover {
+    background-color: rgb(85, 114, 0);
+  }

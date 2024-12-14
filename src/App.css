@@ -1,0 +1,248 @@
+.content {
+  margin: 5em;
+}
+
+body {
+  background: #ffffff;
+  color: #5e5b5b;
+}
+
+.movie-app > .movieRow {
+  display: flex;
+  overflow-x: auto; /* horizontal scrolling */
+  flex-wrap: nowrap; /* prevents wrapping to multiple lines */
+  position: relative;
+  transition: transform 0.2s;
+}
+/* tmdb movie row */
+.row {
+  display: flex; /* align items horizontally */
+  padding-top: 25px;
+  justify-content: space-evenly; /* spread items evenly */
+  gap: 15px; /* space between columns */
+  flex-wrap: wrap; /* allow items to wrap on smaller screens */
+}
+
+.col {
+  display: flex;
+  flex-direction: column; /* stack label and input vertically */
+}
+
+/* filtering titles */
+label {
+  font-weight: bold;
+  margin-bottom: 5px; /* space between label and input */
+}
+
+/* search, filtering boxes */
+input,
+select {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  
+}
+
+input::placeholder {
+  font-style: italic;
+  color: #aaa;
+}
+
+.image-container {
+  flex: 0 0 auto; /* prevent flex items from shrinking */
+  position: relative;
+  width: 200px; /* adjusts */
+  margin: 10px;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+.image-container img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+.image-container h3 {
+  font-size: 1rem;
+  margin-top: 10px;
+}
+
+.image-container:hover {
+  cursor: pointer;
+  transform: scale(1.1);
+}
+
+.image-container:hover .overlay {
+  opacity: 5;
+}
+
+.movieheader {
+  font-size: 20px;
+}
+
+/* favourite overlay button */
+.overlay {
+  position: absolute;
+  background: rgba(0, 0, 0, 0.8);
+  width: 80%;
+  transition: 0.6s ease;
+  opacity: 0;
+  bottom: 0;
+  font-size: 20px;
+  padding: 20px;
+ 
+  text-align: center;
+  
+}
+
+
+/* movie detail page styles */ 
+.movie-detail {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f4f4f4;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.movie-detail img {
+  width: 100%;
+  max-width: 300px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+.movie-detail h1 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  color: black;
+}
+
+.movie-detail p {
+  font-size: 1.2rem;
+  line-height: 1.6;
+  margin-bottom: 10px;
+  color: black;
+}
+
+.movie-detail .release-date,
+.movie-detail .rating {
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+.movie-detail .rating {
+  color: #000000;
+}
+.movie-detail .ratingnumber {
+  color: #e0b509;
+}
+
+
+/* filtering */
+/* filters and reset button in a single row */
+.row.d-flex {
+  display: flex;
+  flex-wrap: wrap; /* Allow wrapping if needed */
+  gap: 10px; /* space between elements */
+  justify-content: flex-start; /* items to the left */
+}
+
+
+/* all buttons, account and x button, fix later */
+button {
+  padding: 10px 15px;
+  border: none;
+  border-radius: 15px;
+  cursor: pointer;
+}
+button:hover {
+  background-color: #b33010;
+}
+
+/* delete favourite button */
+.btn-danger-custom {
+  background-color: #ffffff;
+  color: rgb(0, 0, 0); /* text color */
+  display: flex; /* flexbox to center X */
+  justify-content: center; /* center horizontally */
+  align-items: center; /* center vertically */
+  padding: 10px 18px; 
+  border: none; 
+  cursor: pointer;
+  border-radius: 15px;
+  position: absolute;
+  top: 10px; /* position from top */
+  right: 10px; 
+  width: 20px;
+  height: 30px;
+  transition: transform 0.4s ease-in-out; /* transition for hover effect */
+}
+.btn-danger-custom:hover {
+  background-color: #c42c06; /* background on hover */
+  transform: scale(1.05); /* Slightly enlarge on hover */
+}
+
+/* reset filter button */
+.btn-secondary {
+  background-color: #000000;
+  color: white;
+  font-size: 14px;
+  margin-top: 25px;
+  border-radius: 15px;
+}
+
+/*  filterin */
+@media (max-width: 768px) {
+  .row.d-flex {
+    flex-direction: column; /* stack the elements on smaller screens */
+    gap: 10px; /* adjust space between stacked items */
+  }
+
+  .col {
+    width: 100%; /* each filter takes full width */
+  }
+
+  button {
+    width: 100%; /* makes button full-width on smaller screens */
+    margin-top: 20px; /* adjusts space on smaller screens */
+  }
+}
+
+.row.d-flex.align-items-center.mt-4.mb-4 {
+  justify-content: center;
+  justify-content: space-evenly;
+ 
+}
+
+/*search bar */
+.col.col-sm-4 {
+  margin-top: 40px;
+  padding-left: 2%;
+  margin-right: auto; /* search bar to left */
+}
+
+
+.favourite {
+  
+  margin: 10px;
+
+}
+.favourite-movie-item {
+  gap: 20px;
+  background-color: rgba(138, 138, 138, 0.195);
+  display: grid;
+  margin: 10px;
+  margin-top: 20px;
+  margin-bottom: 20px; 
+  margin-left: 10px; 
+  margin-right: 15px; 
+  flex-wrap: wrap;
+  gap: 12px;
+  padding: 10px;
+  border-radius: 5px;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+}

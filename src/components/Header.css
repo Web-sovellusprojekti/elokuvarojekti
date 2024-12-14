@@ -1,0 +1,123 @@
+/* header */
+header {
+  display: flex;
+  justify-content: space-between; /* space between items */
+  align-items: center;
+  padding: 10px 20px;
+  background-color: #000000;
+  color: white;
+  height: auto; /* height adjusts based on content */
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  flex-wrap: wrap; /* items wrap to the next line */
+}
+
+/* EDIT! header hidden when scrolling with smaller screen */
+.header-hidden {
+  transform: translateY(-100%);
+  transition: transform 0.3s ease-in-out;
+}
+
+/* header buttons */
+.nav-button {
+  background-color: #de3d15;
+  color: white; /* text */
+  padding: 10px 20px; 
+  border: none;
+  cursor: pointer;
+  border-radius: 15px;
+  margin-right: 5px; /* space between buttons */
+}
+.nav-button:last-child {
+  margin-right: 0; /* removes margin from the last button */
+}
+.nav-button:hover {
+  background-color: #a42403; 
+  transform: scale(1.05); /* enlarge button on hover */
+}
+/* navigation to the right */
+nav {
+  margin-left: auto;
+}
+
+/* for smaller screens */
+@media (max-width: 600px) {
+  .nav-button {
+    padding: 8px 16px; /*  padding for smaller screens */
+    margin-right: 0; /* removes right margin for vertical layout */
+    margin-bottom: 5px; /* space between vertically stacked buttons */
+    font-size: 14px; /* font size for smaller screens */
+    flex-grow: 1; /* buttons takes up the whole vertical space */
+    width: 100%; /* buttons take full width */
+  }
+  .nav-button:last-child {
+    margin-bottom: 0; /* removes margin from the last button */
+  }
+
+  nav {
+    display: flex;
+    flex-direction: column; /* Stack buttons vertically on smaller screens */
+    align-items: stretch; /* Make buttons stretch to fill the container */
+    width: 100%; /* Ensure nav takes full width */
+  }
+}
+
+  .nav-button {
+    margin-bottom: 5px; /* Add space between vertically stacked buttons */
+  }
+
+
+
+/* dropdown container */
+.dropdown {
+  flex-direction: column;
+  position: relative;
+  display: inline-block;
+}
+
+/* dropdown button */
+
+
+/* dropdown content (menu) */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #000000;  /* littel darker gray */
+  box-shadow: 0px 8px 16px rgba(35, 35, 35, 0.264); /*  prominent shadow for shading effect */
+  top: 100%; /* place directly below the dropdown button */
+  left: 0;
+  padding: 10px 0; /* padding inside the dropdown */
+  border-radius: 8px; /* smooth rounds */
+  z-index: 1000; /* appears on top */
+  transition: all 0.3s ease; /* smoother transition for showing and hiding */
+}
+
+/* links, text and buttons inside the dropdown */
+.dropdown-content a,
+.dropdown-content button {
+  color: white;
+  text-decoration: none;
+  padding: 10px 15px;
+  display: block;
+
+  transition: background-color 0.3s ease; /* smoother background colour transition */
+}
+
+/* hover effect for menu items */
+.dropdown-content a:hover,
+.dropdown-content button:hover {
+  background-color: #fa2f2fc0;  /* littel darker gray */
+  border-radius: 10px;  /* Adjust the value as needed for smoother edges */
+  cursor: pointer;
+}
+
+/* shows the dropdown menu when hovering */
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+/* test... adjusts dropdown when clicked or focused */
+.dropdown:focus-within .dropdown-content {
+  display: block;
+}
